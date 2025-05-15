@@ -541,24 +541,24 @@ if opcionLlegada == 1:
     elif opUnidTasasl == 3:  # Clientes/hora -> Clientes/minuto
         landa = landa / 60
 
-elif opPoisson != 1:     # type: ignore # added condition, was else before, which is incorrect based on the comment
-    #DISTRIBUCION DE PROBABILIDAD LLEGADA
+    elif opPoisson != 1:     # type: ignore # added condition, was else before, which is incorrect based on the comment
+        #DISTRIBUCION DE PROBABILIDAD LLEGADA
 
-    print("\n🔸¿Qué distribución de probabilidad sigue el tiempo promedio entre llegadas?🤔")
-    print(distribucion)
-    while True:
-        opdistrLlegada = input("Digite la opción: ")
-        if opdistrLlegada:
-            if opdistrLlegada.isdigit():
-                opdistrLlegada = int(opdistrLlegada)
-                if opdistrLlegada in [1, 2, 3, 4]: # simplified condition
-                    break
-                else: 
-                    print(opError)
+        print("\n🔸¿Qué distribución de probabilidad sigue el tiempo promedio entre llegadas?🤔")
+        print(distribucion)
+        while True:
+            opdistrLlegada = input("Digite la opción: ")
+            if opdistrLlegada:
+                if opdistrLlegada.isdigit():
+                    opdistrLlegada = int(opdistrLlegada)
+                    if opdistrLlegada in [1, 2, 3, 4]: # simplified condition
+                        break
+                    else: 
+                        print(opError)
+                else:
+                    print(errorValor)       
             else:
-                print(errorValor)       
-        else:
-            print(errorVacio)
+                print(errorVacio)
 else:
     exit(error)
  # This line was probably a misplaced from the first condition, it is unnecessary since all cases are covered with the first if/elif
