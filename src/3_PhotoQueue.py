@@ -560,9 +560,7 @@ if opcionLlegada == 1:
             else:
                 print(errorVacio)
 else:
-    exit(error)
- # This line was probably a misplaced from the first condition, it is unnecessary since all cases are covered with the first if/elif
-                                                #DISTRIBUCION DE PROBABILIDAD LLEGADA
+    
     print("\n🔸¿Qué distribución de probabilidad sigue el tiempo promedio entre llegadas?🤔")
     print(distribucion)
     while True:
