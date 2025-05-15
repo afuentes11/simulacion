@@ -511,17 +511,17 @@ if opcionLlegada == 1:
 
 
     if opPoisson == 1:
-     while True:
-        landa = parametros["landa"][0]  # Asignación automática para la tasa media de llegada
-        print("\n Segun el word la tasa de llegada es de " + str(landa))
-        if landa:
-            if isinstance(landa, (int, float)) or (isinstance(landa, str) and landa.replace(".", "", 1).isdigit()):
-                landa = float(landa)  # Convertir a flotante si es necesario
-                break
+        while True:
+            landa = parametros["landa"][0]  # Asignación automática para la tasa media de llegada
+            print("\n Segun el word la tasa de llegada es de " + str(landa))
+            if landa:
+                if isinstance(landa, (int, float)) or (isinstance(landa, str) and landa.replace(".", "", 1).isdigit()):
+                    landa = float(landa)  # Convertir a flotante si es necesario
+                    break
+                else:
+                    print(errorValor)
             else:
-                print(errorValor)
-        else:
-            print(errorVacio)
+                print(errorVacio)
 
     print(unidadesTasas)
 
@@ -541,26 +541,7 @@ if opcionLlegada == 1:
     elif opUnidTasasl == 3:  # Clientes/hora -> Clientes/minuto
         landa = landa / 60
 
-    elif opPoisson != 1:     # type: ignore # added condition, was else before, which is incorrect based on the comment
-        #DISTRIBUCION DE PROBABILIDAD LLEGADA
-
-        print("\n🔸¿Qué distribución de probabilidad sigue el tiempo promedio entre llegadas?🤔")
-        print(distribucion)
-        while True:
-            opdistrLlegada = input("Digite la opción: ")
-            if opdistrLlegada:
-                if opdistrLlegada.isdigit():
-                    opdistrLlegada = int(opdistrLlegada)
-                    if opdistrLlegada in [1, 2, 3, 4]: # simplified condition
-                        break
-                    else: 
-                        print(opError)
-                else:
-                    print(errorValor)       
-            else:
-                print(errorVacio)
 else:
-    
     print("\n🔸¿Qué distribución de probabilidad sigue el tiempo promedio entre llegadas?🤔")
     print(distribucion)
     while True:
@@ -576,7 +557,7 @@ else:
                 print(errorValor)       
         else:
                 print(errorVacio)    
-    if opdistrLlegada ==1:
+    if opdistrLlegada == 1:
          while True:
             landa=input("Ingrese el tiempo promedio entre llegadas (1/λ): ")
             if landa:
@@ -607,7 +588,7 @@ else:
          elif opUnidTiemposl==3:
               landa=landa/60
     else:
-         exit(error)
+         exit(error) # El codigo solo es valido para la funcion de distribucion exponencial, seleccionar 2, 3, o 4 termina con la ejecucion del código
 
 # Mensaje de pregunta inicial para datos de servicio
 datosServicio = '''\n🔸Los datos de servicio están en:
